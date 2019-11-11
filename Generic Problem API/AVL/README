@@ -1,0 +1,46 @@
+Dieaconu Vlad-Stefan 321CA
+
+Acesta este README-ul meu pentru structura de BST, implementat folosind un AVL.
+In testarea acesteia, am avut in considerare 2 tipuri de teste:
+- teste de acceptanta, ce au scopul de a testa daca structura este implementata
+corect, aici avem serii de comenzi de insert, remove si modify, pentru a vedea
+la final daca schimbarile aduse BST-ului sunt cele la care ne-am asteptat
+- teste de performanta, unde am masurat timpul de executie pentru aceste comenzi.
+Am masurat timpul de executie pentru insertia numerelor crescatoare pana  1000000,
+pentru numerele descrescatoare pana la 1000000 cat si pentru numere random, generate
+folosind un generator.
+
+.
+├── Generator
+│   ├── Makefile
+│   ├── README
+│   ├── generator
+│   └── generator.cpp
+├── Makefile
+├── README.md
+├── a.out
+├── algo.h
+├── algo_test.cpp
+├── in
+│   ├── test1.in
+│   ├── test2.in
+│   ├── test3.in
+│   ├── test4.in
+│   ├── test5.in
+│   ├── test6.in
+│   └── test7.in
+└── out
+    ├── test1.out
+    ├── test2.out
+    ├── test3.out
+    ├── test4.out
+    ├── test5.out
+    ├── test6.out
+    └── test7.out
+
+
+Structura testelor este asemanatoare cu cea de la dictionar, generatorul imprumutand
+implementarea pe care am folosit-o pentru dictionar, cu mici modificari.
+In acest sens, tipul testelor a ramas acelasi si au aceeasi structura, cu modificarea ca
+am mai adaugat un tip de test, dorind sa masor ce diferenta este intre introducerea unor 
+numere ordonate atat descrescator, cat si crescator. (testele de tip 5 si 6)

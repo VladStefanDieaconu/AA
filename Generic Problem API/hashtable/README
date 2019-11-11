@@ -1,0 +1,109 @@
+Dieaconu Vlad-Stefan 321CA
+
+Acesta este README-ul meu pentru structura de dictionar.
+In testarea acesteia, am avut in considerare 2 tipuri de teste:
+- teste de acceptanta, ce au scopul de a testa daca structura este implementata
+corect, aici avem serii de comenzi de insert, remove si modify, pentru a vedea
+la final daca schimbarile aduse dictionarului sunt cele la care ne-am asteptat
+- teste de performanta, unde am masurat timpul de executie pentru aceste comenzi
+Testele incluse in documentul IN au cate 10 si 50 de comenzi succesive de add,
+respectiv remove si modify. Dupa cum ne asteptam, acestea se executa in
+fractiuni de secunda, chiar si atunci cand functia de hash este una foarte
+proasta. Generatorul introdus in aceasta arhiva permite realizarea unor teste 
+de o complexitate crescuta, cu un numar oricat de mare de comenzi. 
+
+.
+├── Generator
+│   ├── Makefile
+│   ├── README
+│   ├── generator
+│   └── generator.cpp
+├── Makefile
+├── algo - Copy.h
+├── algo.cpp
+├── algo.h
+├── algo_test.cpp
+├── in
+│   ├── test1.in
+│   ├── test10.in
+│   ├── test2.in
+│   ├── test3.in
+│   ├── test4.in
+│   ├── test5.in
+│   ├── test6.in
+│   ├── test7.in
+│   ├── test8.in
+│   └── test9.in
+└── out
+    ├── test1.out
+    ├── test10.out
+    ├── test2.out
+    ├── test3.out
+    ├── test4.out
+    ├── test5.out
+    ├── test6.out
+    ├── test7.out
+    ├── test8.out
+    └── test9.out
+
+
+Structura testelor:
+pe prima linie avem tipul testului, un numar de la 1 la 6.
+
+---pentru testele de tipul 1
+pe a doua linie avem numarul de comenzi de tipul PUT (/ADD) pe care dorim sa le
+facem = N, iar pe a treia linie numarul de comenzi de verificare (/interogare) pe
+care dorim sa le facem = M
+
+Urmeaza N linii cu cate 2 parametri, reprezentand cheia si valoarea introduse 
+in hashtable.
+In continuare, urmeaza M linii, reprezentand chei pe care vrem sa verificam
+daca le avem introduse in hashtable
+
+---pentru testele de tipul 2
+pe a doua linie avem numarul de comenzi de tipul PUT (/ADD) pe care dorim sa le
+facem = N, iar pe a treia linie numarul de comenzi de remove pe care dorim
+sa le facem.
+
+Urmeaza N linii cu cate 2 parametri, reprezentand cheia si valoarea introduse 
+in hashtable.
+In continuare, urmeaza M linii, reprezentand pe care dorim sa le eliminam.
+Pentru verificare, se parcurge apoi hashtable-ul initial si se afiseaza ce cheie
+mai este inca in hashtable si ce cheie nu mai exista in hashtable (pentru ca
+a fost stearsa)
+
+---pentru testele de tipul 3
+pe a doua linie avem numarul de comenzi de tipul PUT (/ADD) pe care dorim sa le
+facem = N, iar pe a treia linie numarul de comenzi de tipul modify = <
+
+Urmeaza N linii cu cate 2 parametri, reprezentand cheia si valoarea introduse 
+in hashtable.
+In continuare, urmeaza M linii, cu cate 2 valori, reprezentand o cheie si o valoare.
+Pentru verificare, se parcurge apoi hashtable-ul initial si se afiseaza ce chei
+mai sunt in hashtable si ce valori au acestea.
+
+---pentru testele de tipul 4
+testul construieste un hashtable, introducand chei numere naturale consecutive
+de la 0 la 100000, dupa care toate acestea sunt modificate, pe rand si in final
+sterse pe rand, de la cheia cu numarul 100000 pana la cheia 0. Se afiseaza 
+de fiecare data timpii pentru aceste tipuri de operatii.
+
+---pentru testele de tipul 5
+acest test face acelasi lucru ca testul 4, cu deosebire ca elementele sunt
+sterse incepand cu cheia 0, urcand crescator pana la cheia 100000.
+Se observa astfel diferenta SEMNIFICATIVA de timp, cu toate ca am sters acelasi
+numar de elemente, timpul a fost mult mai mare, in functie de ordinea de 
+stergere
+
+
+---pentru testele de tipul 6
+acest test combina tipul de teste 1-3 cu testele 4-6, masurand timpul in care sunt
+adaugate, modificate si sterse numere mari de perechi random cheie-valoare, fiind
+cel mai relevant si mai important tip de teste.
+
+Pentru testarea performantei, am pus la dispozitie mai multe tipuri de functii 
+de hashare, pentru a observa diferenta atunci cand folosim o functie de hashare
+avansata, fata de una basic, ce are multe coliziuni. Pentru schimbarea functiei 
+folosite la hashare, utilizatorul trebuie sa schimbe indexul functiei functiei
+transmise ca parametru atunci cand se creeaza hashtable-ul (linia 31, am pus
+comentarii intuitive si in cod, pt mai buna intelegere)
